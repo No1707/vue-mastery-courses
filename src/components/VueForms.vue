@@ -117,7 +117,14 @@ import axios from 'axios'
     },
     methods: {
         sendForm() {
-            console.log("ok submit")
+            axios.post(
+                'https://my-json-server.typicode.com/No1707/vue-mastery-courses',
+                this.event
+            ).then(function(response){
+                console.log('Response', response)
+            }).catch(function(error){
+                console.log('Error', error)
+            })
         }
     }
 }
