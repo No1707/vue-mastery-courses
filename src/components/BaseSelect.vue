@@ -1,5 +1,5 @@
 <template>
-    <label v-if="label">{{label}}</label>
+    <label :for="uuid" v-if="label">{{label}}</label>
     <select
         :value="modelValue"
         class="field"
@@ -7,6 +7,7 @@
             ...$attrs,
             onChange: $event => { $emit('update:modelValue', $event.target.value) }
         }"
+        :id="uuid"
     >
         <option
             v-for="option in options"
@@ -18,6 +19,8 @@
 </template>
 
 <script>
+import UniqueID from '../js/UniqueID.js'
+
     export default{
         name: 'base-select',
         props: {
@@ -32,6 +35,12 @@
             modelValue: {
                 type: [Number, String],
                 default: ''
+            }
+        },
+        setup() {
+            const uuid = UniqueID().getID()
+            return {
+                uuid
             }
         }
     }

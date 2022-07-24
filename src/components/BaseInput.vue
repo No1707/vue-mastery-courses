@@ -1,5 +1,5 @@
 <template>
-    <label>{{ label }}</label>
+    <label :for="uuid" v-if="label">{{ label }}</label>
     <input
         v-bind="{
             ...$attrs,
@@ -8,10 +8,21 @@
         :placeholder="label"
         class="field"
         :value="modelValue"
+        :id="uuid"
+        :aria-describedby="error ? `${uuid}-error` : null"
+        :aria-invalid="error ? true : null"
     >
+    <p
+        v-if="error"
+        class="errorMessage"
+        :id="`${uuid}-error`"
+        aria-life="assertive"
+    >{{ error }}</p>
 </template>
 
 <script>
+import UniqueID from '../js/UniqueID.js'
+
     export default {
         name: "base-input",
         props: {
@@ -22,6 +33,16 @@
             modelValue: {
                 type: [Number, String],
                 default: ''
+            },
+            error: {
+                type: String,
+                default: ''
+            }
+        },
+        setup() {
+            const uuid = UniqueID().getID()
+            return {
+                uuid
             }
         }
     }

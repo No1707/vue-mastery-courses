@@ -118,7 +118,7 @@ import axios from 'axios'
     methods: {
         sendForm() {
             axios.post(
-                'https://my-json-server.typicode.com/No1707/vue-mastery-courses',
+                'https://my-json-server.typicode.com/Code-Pop/Vue-3-Forms/events',
                 this.event
             ).then(function(response){
                 console.log('Response', response)

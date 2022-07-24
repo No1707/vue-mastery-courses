@@ -174,6 +174,7 @@ select.error {
 }
 input + p.errorMessage {
   margin-bottom: 24px;
+  margin-top: 0;
 }
 textarea {
   width: 100%;
