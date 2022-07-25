@@ -85,7 +85,7 @@
 <script>
 import axios from 'axios'
 
-    export default {
+export default {
     name: "vue-form",
     data() {
         return {
@@ -129,5 +129,3 @@ import axios from 'axios'
     }
 }
 </script>
-
-<style></style>

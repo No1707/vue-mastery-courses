@@ -16,32 +16,38 @@
             :selected="option === modelValue"
         >{{ option }}</option>
     </select>
+    <BaseErrorMessage
+        v-if="error"
+        :id="`${uuid}-error`"
+    >
+        {{ error }}
+    </BaseErrorMessage>
 </template>
 
 <script>
 import UniqueID from '../js/UniqueID.js'
 
-    export default{
-        name: 'base-select',
-        props: {
-            label: {
-                type: String,
-                default: ''
-            },
-            options: {
-                type: Array,
-                required: true
-            },
-            modelValue: {
-                type: [Number, String],
-                default: ''
-            }
+export default{
+    name: 'base-select',
+    props: {
+        label: {
+            type: String,
+            default: ''
         },
-        setup() {
-            const uuid = UniqueID().getID()
-            return {
-                uuid
-            }
+        options: {
+            type: Array,
+            required: true
+        },
+        modelValue: {
+            type: [Number, String],
+            default: ''
+        }
+    },
+    setup() {
+        const uuid = UniqueID().getID()
+        return {
+            uuid
         }
     }
+}
 </script>

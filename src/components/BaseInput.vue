@@ -12,40 +12,40 @@
         :aria-describedby="error ? `${uuid}-error` : null"
         :aria-invalid="error ? true : null"
     >
-    <p
+    <BaseErrorMessage
         v-if="error"
-        class="errorMessage"
         :id="`${uuid}-error`"
-        aria-life="assertive"
-    >{{ error }}</p>
+    >
+        {{ error }}
+    </BaseErrorMessage>
 </template>
 
 <script>
 import UniqueID from '../js/UniqueID.js'
 
-    export default {
-        name: "base-input",
-        props: {
-            label: {
-                type: String,
-                default: ''
-            },
-            modelValue: {
-                type: [Number, String],
-                default: ''
-            },
-            error: {
-                type: String,
-                default: ''
-            }
+export default {
+    name: "base-input",
+    props: {
+        label: {
+            type: String,
+            default: ''
         },
-        setup() {
-            const uuid = UniqueID().getID()
-            return {
-                uuid
-            }
+        modelValue: {
+            type: [Number, String],
+            default: ''
+        },
+        error: {
+            type: String,
+            default: ''
+        }
+    },
+    setup() {
+        const uuid = UniqueID().getID()
+        return {
+            uuid
         }
     }
+}
 </script>
 
 <style></style>

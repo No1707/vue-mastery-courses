@@ -1,14 +1,20 @@
 <template>
-  <VueForms />
+  <!-- To learn basic vue form practices -->
+  <!-- <SimpleForm /> -->
+
+  <!-- To learn to validate forms -->
+  <LoginForm />
 </template>
 
 <script>
-import VueForms from './components/VueForms.vue'
+// import SimpleForm from './views/SimpleForm.vue'
+import LoginForm from './views/LoginForm.vue'
 
 export default {
   name: 'App',
   components: {
-    VueForms
+    // SimpleForm
+    LoginForm
   }
 }
 </script>
@@ -174,7 +180,6 @@ select.error {
 }
 input + p.errorMessage {
   margin-bottom: 24px;
-  margin-top: 0;
 }
 textarea {
   width: 100%;
@@ -201,6 +206,7 @@ textarea {
 [type="text"],
 [type="number"],
 [type="search"],
+[type="email"],
 [type="password"] {
   height: 52px;
   width: 100%;
@@ -210,6 +216,7 @@ textarea {
 [type="text"]:focus,
 [type="number"]:focus,
 [type="search"]:focus,
+[type="email"]:focus,
 [type="password"]:focus {
   border-color: #39b982;
 }

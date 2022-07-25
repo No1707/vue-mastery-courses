@@ -8,6 +8,12 @@
         :id="uuid"
     >
     <label :for="uuid" v-if="label">{{ label }}</label>
+    <BaseErrorMessage
+        v-if="error"
+        :id="`${uuid}-error`"
+    >
+        {{ error }}
+    </BaseErrorMessage>
 </template>
 
 <script>

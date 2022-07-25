@@ -7,6 +7,12 @@
         :id="uuid"
     />
     <label :for="uuid" v-if="label">{{ label }}</label>
+    <BaseErrorMessage
+        v-if="error"
+        :id="`${uuid}-error`"
+    >
+        {{ error }}
+    </BaseErrorMessage>
 </template>
 
 <script>
@@ -22,6 +28,10 @@ import UniqueID from '../js/UniqueID.js'
             modelValue: {
                 type: Boolean,
                 default: false
+            },
+            error: {
+                type: String,
+                default: ''
             }
         },
         setup() {
